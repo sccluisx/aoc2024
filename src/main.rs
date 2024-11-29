@@ -1,12 +1,14 @@
 mod day00;
-//mod day02;
-mod lib;
+mod day01;
+mod day02;
 
 fn main() {
-    println!("Running Day 1 solution...");
+    println!("Running Day 00 solution...");
+    day00::solve();
+
+    println!("Running Day 01 solution...");
     day01::solve();
 
-    // Uncomment this line to run Day 2 solution
-    // println!("Running Day 2 solution...");
-    // day02::solve();
+    println!("Running Day 02 solution...");
+    day02::solve();
 }

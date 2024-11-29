@@ -314,3 +314,6 @@ yarn-error.log*
 
 # Coverage directory used by tools like Istanbul
 coverage/
+/.idea/aoc2024.iml
+/.idea/modules.xml
+/.idea/vcs.xml

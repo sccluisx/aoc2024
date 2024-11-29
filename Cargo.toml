@@ -1,6 +1,12 @@
 [package]
 name = "aoc2024"
 version = "0.1.0"
+authors = ["sccluisx "]
 edition = "2021"
+
+
+[lib]
+name = "aoc2024"
+path = "src/lib.rs"
 
 [dependencies]

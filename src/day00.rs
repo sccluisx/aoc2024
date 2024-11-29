@@ -1,18 +1,10 @@
-use crate::lib::{read_input, parse_numbers};
+use aoc2024::read_file_to_string;
 
 pub fn solve() {
-    let input = read_input("day01.txt");
-    let numbers = parse_numbers(&input);
-    let result = sum_numbers(&numbers);
-    println!("Day 1 Solution: {}", result);
-}
+    println!("Day 00: Reading input file...");
 
-fn sum_numbers(numbers: &[i32]) -> i32 {
-    numbers.iter().sum()
-}
-
-// Optionally make the core logic public for testing
-pub fn process_input(input: &str) -> i32 {
-    let numbers = parse_numbers(input);
-    sum_numbers(&numbers)
+    match read_file_to_string("day00.txt") {
+        Ok(content) => println!("File Content:\n{}", content),
+        Err(e) => eprintln!("Error reading file: {}", e),
+    }
 }

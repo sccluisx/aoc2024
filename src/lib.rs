@@ -1,6 +1,5 @@
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
-use std::path::Path;
 
 /// Reads the entire file into a single string.
 pub fn read_file_to_string(filename: &str) -> io::Result<String> {
@@ -9,13 +8,11 @@ pub fn read_file_to_string(filename: &str) -> io::Result<String> {
 }
 
 /// Returns an iterator to read the file line by line.
-/// Useful for processing large files efficiently.
 pub fn read_file_line_by_line(filename: &str) -> io::Result<impl Iterator<Item = String>> {
     let path = format!("input/{}", filename);
     let file = File::open(&path)?;
     let reader = BufReader::new(file);
 
-    // Map each line to a String and return the iterator
     Ok(reader.lines().filter_map(|line| line.ok()))
 }
 
@@ -25,7 +22,6 @@ pub fn read_line(filename: &str, line_number: usize) -> io::Result<Option<String
     let file = File::open(&path)?;
     let reader = BufReader::new(file);
 
-    // Use `.enumerate()` to find the desired line
     Ok(reader
         .lines()
         .enumerate()
@@ -38,7 +34,6 @@ pub fn read_lines_range(filename: &str, start: usize, end: usize) -> io::Result<
     let file = File::open(&path)?;
     let reader = BufReader::new(file);
 
-    // Filter the range of lines
     Ok(reader
         .lines()
         .enumerate()
