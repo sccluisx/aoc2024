@@ -1,4 +1,5 @@
 use aoc2024::{read_file_line_by_line, read_line}; // Use `aoc2024` instead of `crate::lib`
+use std::collections::HashMap;
 
 pub fn solve() {
     println!("Day 01: Processing input line by line...");
@@ -35,11 +36,26 @@ pub fn solve() {
     }
 
     println!("solution: {:?}", solution);
+    let mut map: HashMap<i32, i32> = vec_a.iter().map(|&key| (key, 0)).collect();
+    for value in vec_b {
+        if let Some(count) = map.get_mut(&value) {
+            // If the number exists as a key, increment its value by 1
+            *count += 1;
+        }
+    }
 
-    // println!("Day 01: Reading a specific line...");
-    //match read_line("day01.txt", 2) {
-    //    Ok(Some(line)) => println!("Line 2: {}", line),
-    //    Ok(None) => println!("Line 2 does not exist."),
-    //    Err(e) => eprintln!("Error reading file: {}", e),
-    // }1
+    // Print the updated map to see the result
+    for (key, value) in &map {
+        println!("Key: {}, Value: {}", key, value);
+    }
+    println!("........................");
+    let mut simindex = 0;
+    for ele in vec_a.iter() {
+        if let Some(count) = map.get_mut(ele){
+        println!("ele: {}, Value: {}", ele, *count);
+
+        simindex += ele*(*count);
+        }
+    }
+    println!("simindex : {:?} ", simindex);
 }
