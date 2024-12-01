@@ -1,4 +1,6 @@
-Line 1: Welcome to Day 2.
-Line 2: Processing files is fun.
-Line 3: Reading specific lines.
-Line 4: End of file.
+3   4
+4   3
+2   5
+1   3
+3   9
+3   3
